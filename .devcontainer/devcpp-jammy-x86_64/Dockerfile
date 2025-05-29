@@ -1,19 +1,3 @@
-# To build the docker image:
-# docker build -t devenvcpp/ubuntu:0.1 .
-#
-# To create the docker container and open the terminal
-# This will create a volume for us to persist our files. We can mount this volume in other containers later if we like.
-#   The volume differs from mounting a directory from the host OS, in that docker will manage it and we won't access it from the host. 
-#   That way we don't have to worry about line endings and such.
-# docker run --name devenvcpp --user developer -it --mount type=volume,src=vol_devenvcpp,dst=/home/developer/volume devenvcpp/ubuntu:0.1 bash
-# 
-# When done, just 'exit'
-# 
-# To start the already created docker container and open the terminal
-# docker start --attach --interactive devenvcpp
-#
-# When done, just 'exit'
-
 FROM ubuntu:22.04
 SHELL ["/bin/bash", "-c"]
 MAINTAINER ChristopherPisz
@@ -23,9 +7,6 @@ ARG USERNAME=developer
 ARG USER_UID=999
 ARG USER_GID=$USER_UID
 
-# Install all the things we'll need
-#    I am installing git on the container rather than the host, because we are using the volume rather than mounting a directory we share with the host
-#    in my opinion, doing the latter invites all kinds of problems.
 RUN apt update && apt -y --no-install-recommends install \
     sudo \
     bash \
