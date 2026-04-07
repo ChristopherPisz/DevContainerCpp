@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 SHELL ["/bin/bash", "-c"]
 MAINTAINER ChristopherPisz
 LABEL Description="Chris' Ubuntu based development environment for C++"
@@ -18,6 +18,7 @@ RUN apt update && apt -y --no-install-recommends install \
     git \
     ssh \
     build-essential \
+    cmake \
     clang \
     ninja-build \
     gdb \
@@ -29,12 +30,6 @@ RUN apt update && apt -y --no-install-recommends install \
     ca-certificates \
     gnupg \
     software-properties-common
-
-# Add the kitware repo so we can get a more recent version of CMake
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add - && \
-    apt-add-repository 'deb https://apt.kitware.com/ubuntu/ noble main' && \
-    apt update && \
-    apt install -y cmake
 
 # Create a virtual environment for python
 RUN python3 -m venv /opt/venv
@@ -56,6 +51,18 @@ RUN existing_user=$(getent passwd $USER_UID | cut -d: -f1) && \
 
 # Create build directory
 RUN mkdir -p /build && chown -R ${USER_UID}:${USER_GID} /build
+
+# Install postgres client and locales
+#
+# Added towards end of dockerfile so it docker can build the iamge using layers since we are using the same image name as the version of
+# devcontainer without postgres
+RUN apt install -y postgresql-client \
+    locales
+
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # Change to the user
 USER $USERNAME

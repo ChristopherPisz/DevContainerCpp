@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: devenvcpp-noble-x86_64-image:latest
+    command: sleep infinity
+    volumes:
+      - ../..:/workspace:cached
+      - build_dir:/build
+    depends_on:
+      - postgres
+    networks:
+      - devnet
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: devdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    networks:
+      - devnet
+volumes:
+  pgdata:
+  build_dir:
+
+networks:
+  devnet:
+    driver: bridge

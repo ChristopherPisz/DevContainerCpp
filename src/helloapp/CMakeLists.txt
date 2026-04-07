@@ -8,5 +8,6 @@ add_executable(helloapp
 )
 
 target_link_libraries(helloapp PUBLIC
-    hellolib
+    libpqxx::pqxx
+    dblib
 )

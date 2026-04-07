@@ -1,5 +1,5 @@
-# DevContainerCppEnv
-A devcontainer environment with example app, lib, and test projects using conan and cmake, that can serve as a starting point for a C++ project. I've featured this repo on my youtube channel http://youtube.com/@ChristopherPisz but I have updated it at least a few times since then, so be aware it might not match exactly.
+# DevContainerMultiCpp
+A devcontainer with multiple services. One for development, one that runs a postgres db to develop against.
 
 # Building
 This repo makes use of the DevContainer concept, which was first popularized by VSCode and it's remote containers extension. This allows you to use VSCode and issue a "Open Folder in Dev Container" from the command pallete, and have VSCode automatically create the appropriate docker image, container, and volumes for you.

@@ -1,3 +1,5 @@
+
+
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
     ${GTEST_INCLUDE_DIRS}
@@ -9,7 +11,8 @@ add_executable(hellotest
 )
 
 target_link_libraries(hellotest PUBLIC
-    hellolib
     GTest::gtest
-    GTest::gmock
+    GTest::gmock    
+    libpqxx::pqxx
+    dblib
 )

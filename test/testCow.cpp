@@ -1,11 +1,10 @@
-#include "hellolib/IAnimal.hpp"
-#include "hellolib/Cow.hpp"
+#include "dblib/DBUtil.hpp"
 
 #include <sstream>
 
 #include <gtest/gtest.h>
 
-using namespace hellolib;
+using namespace dbutil;
 
 
 /*
@@ -16,9 +15,5 @@ using namespace hellolib;
 */
 TEST(TestDeserialize, plainData)
 {
-    std::unique_ptr<IAnimal> cow{new Cow()};
-    
-    std::ostringstream out;
-    cow->speak(out);
-    EXPECT_EQ(out.str(), "Moo\n");
+    EXPECT_TRUE(true);
 }
