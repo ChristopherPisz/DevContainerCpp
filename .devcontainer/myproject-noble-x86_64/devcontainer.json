@@ -1,11 +1,9 @@
 {
-  "name": "devcpp-jammy-x86_64",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "dev-app",
+  "service": "app",
   "overrideCommand": false,
   "shutdownAction": "stopCompose",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "bash -ilc 'conan profile detect && conan install . --output-folder=/build --build=missing -s compiler.cppstd=gnu20 --settings=build_type=Debug'",
   "customizations": {
     "vscode": {
       "settings": {
