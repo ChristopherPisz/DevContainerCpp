@@ -74,3 +74,6 @@ Steps:
 - Click Build
 - VSCode should prompt to select a preset: conan-debug, conan-release, or conan-relwithdebinfo
 - Build should actually build
+
+# Multi-Container Branch
+If you'd like to see how to setup and use multiple containers at once, checkout branch `multicontainer-with-postgres`, which creates an additional container that runs postgres, sets up network communication between the app container and the postgres container, gets the C++ libs to interact with postgres, and installs the postgres client into the container.
