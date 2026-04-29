@@ -19,6 +19,9 @@ RUN apt update && apt -y --no-install-recommends install \
     ssh \
     build-essential \
     clang \
+    clangd \
+    clang-tidy \
+    clang-format \
     ninja-build \
     gdb \
     wget \

@@ -3,18 +3,24 @@
 
 #include <ostream>
 
-namespace hellolib
-{
+namespace hellolib {
 
 /*
-* @brief Animal interface
-*/
-class IAnimal
-{
-public:
-    virtual std::ostream & speak(std::ostream & out) = 0;
+ * @brief Animal interface
+ */
+class IAnimal {
+  public:
+    IAnimal() = default;
+    virtual ~IAnimal() = default;
+
+    IAnimal(const IAnimal &) = delete;
+    IAnimal &operator=(const IAnimal &) = delete;
+    IAnimal(IAnimal &&) = delete;
+    IAnimal &operator=(IAnimal &&) = delete;
+
+    virtual std::ostream &speak(std::ostream &out) = 0;
 };
 
-}
+} // namespace hellolib
 
 #endif

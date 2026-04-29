@@ -2,16 +2,14 @@
 
 #include <ostream>
 
-namespace hellolib
-{
+namespace hellolib {
 
 Cow::Cow()
-    : BaseAnimal(NUM_LEGS)
-{}
+    : BaseAnimal(NUM_LEGS) {
+}
 
-std::ostream & Cow::speak(std::ostream & out)
-{
+std::ostream &Cow::speak(std::ostream &out) {
     return out << "Moo" << std::endl;
 }
 
-}
+} // end namespace hellolib

@@ -5,22 +5,19 @@
 
 #include <ostream>
 
-namespace hellolib
-{
+namespace hellolib {
 
-class BaseAnimal : public IAnimal
-{
-public:
+class BaseAnimal : public IAnimal {
+  public:
     BaseAnimal() = default;
-    BaseAnimal(unsigned int numLegs);
-    virtual ~BaseAnimal() = default;
+    explicit BaseAnimal(unsigned int numLegs);
 
-    std::ostream & speak(std::ostream & out) override;
+    std::ostream &speak(std::ostream &out) override;
 
-protected:
-    unsigned int m_numLegs;
+  protected:
+    unsigned int m_numLegs = 0;
 };
 
-}
+} // namespace hellolib
 
 #endif

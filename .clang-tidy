@@ -1,0 +1,17 @@
+---
+Checks: |
+  *, 
+  -altera-*,
+  -fuchsia-*,
+  -zircon-*,
+  -llvmlibc-*,
+  -bugprone-reserved-identifier,
+  -modernize-use-trailing-return-type,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -readability-non-private-member-variables-in-classes,
+  -misc-non-private-member-variables-in-classes
+WarningsAsErrors: ''
+HeaderFilterRegex: 'src/.*|include/.*'
+CheckOptions:
+  - key:             modernize-loop-convert.MaxCopySize
+    value:           '16'

@@ -20,6 +20,9 @@ RUN apt update && apt -y --no-install-recommends install \
     build-essential \
     cmake \
     clang \
+    clangd \
+    clang-tidy \
+    clang-format \
     ninja-build \
     gdb \
     wget \

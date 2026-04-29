@@ -2,17 +2,14 @@
 
 #include <ostream>
 
-namespace hellolib
-{
+namespace hellolib {
 
 BaseAnimal::BaseAnimal(unsigned int numLegs)
-    : IAnimal()
-    , m_numLegs(numLegs)
-{}
+    : m_numLegs(numLegs) {
+}
 
-std::ostream & BaseAnimal::speak(std::ostream & out)
-{
+std::ostream &BaseAnimal::speak(std::ostream &out) {
     return out << "Generic animal noises" << std::endl;
 }
 
-}
+} // end namespace hellolib

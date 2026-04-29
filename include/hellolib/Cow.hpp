@@ -5,20 +5,23 @@
 
 #include <ostream>
 
-namespace hellolib
-{
+namespace hellolib {
 
-class Cow : public BaseAnimal
-{
-public:
-    const unsigned NUM_LEGS = 4;
+class Cow : public BaseAnimal {
+  public:
+    static const unsigned NUM_LEGS = 4;
 
     Cow();
-    virtual ~Cow() = default;
+    ~Cow() override = default;
 
-    std::ostream & speak(std::ostream & out) override;
+    Cow(const Cow &) = delete;
+    Cow &operator=(const Cow &) = delete;
+    Cow(const Cow &&) = delete;
+    Cow &operator=(const Cow &&) = delete;
+
+    std::ostream &speak(std::ostream &out) override;
 };
 
-}
+} // namespace hellolib
 
 #endif
